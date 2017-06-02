@@ -8,7 +8,26 @@ const propTypes = {
 };
 
 const defaultProps = {
-  omClick: () => {},
+  onClick: () => {},
   value: 0
+};
+
+class Counter extends Component {
+  render() {
+    const { onClick, value } = this.props;
+
+    return (
+      <div>
+        <div className='counter-label'>
+          Value: {value}
+        </div>
+        <Button onClick={onClick}>+</Button>
+      </div>
+    );
+  }
 }
 
+Counter.propTypes = propTypes;
+Counter.defaultProps = defaultProps;
+
+export default Counter;

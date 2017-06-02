@@ -1,12 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React      from 'react';
+import ReactDOM   from 'react-dom';
 import { browserHistory, Router } from 'react-router';
+import { Provider } from 'react-redux';
 import routes from './routes';
+import configureStore from './redux/configureStore';
+
+const store = configureStore();
 
 const component = (
-  <Router history={browserHistory}>
-    {routes}
-  </Router>
+  <Provider store={store}>
+    <Router history={browserHistory}>
+      {routes}
+    </Router>
+  </Provider>
 );
 
-ReactDOM.render(component, document.getElementById('root'));
+ReactDOM.render(component, document.getElementById('react-view'));
