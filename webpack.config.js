@@ -34,7 +34,6 @@ if (process.env.NODE_ENV === 'production') {
 module.exports = {
   entry: ['babel-polyfill', './src/client.js'],
   debug: process.env.NODE_ENV !== 'production',
-  eslint: { configFile: '.eslintrc' },
   resolve: {
     root:               path.join(__dirname, 'src'),
     modulesDirectories: ['node_modules'],
@@ -62,8 +61,11 @@ module.exports = {
       { test: /\.svg/, loader: 'url-loader?limit=26000&mimetype=image/svg+xml' },
       { test: /\.(woff|woff2|ttf|eot)/, loader: 'url-loader?limit=1' },
       { test: /\.jsx?$/, loader: process.env.NODE_ENV !== 'production' ? 'react-hot!babel!eslint-loader' : 'babel', exclude: [/node_modules/, /public/] },
-      { test: /\.json$/, loader: 'json-loader' },
+      { test: /\.json$/, loader: 'json-loader' }
     ]
+  },
+  eslint: {
+    configFile: '.eslintrc'
   },
   devtool: process.env.NODE_ENV !== 'production' ? 'source-map' : null,
   devServer: {

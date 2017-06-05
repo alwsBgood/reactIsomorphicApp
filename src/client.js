@@ -4,6 +4,7 @@ import { browserHistory, Router } from 'react-router';
 import { Provider } from 'react-redux';
 import routes from './routes';
 import configureStore from './redux/configureStore';
+import DevTools from './components/DevTools';
 
 const store = configureStore();
 
@@ -15,4 +16,5 @@ const component = (
   </Provider>
 );
 
-ReactDOM.render(component, document.getElementById('react-view'));
+ReactDOM.render(component, document.getElementById('root'));
+ReactDOM.render(<DevTools store={store} />, document.getElementById('dev-tools'));

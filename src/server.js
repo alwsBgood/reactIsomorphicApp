@@ -47,7 +47,7 @@ function renderHTML(componentHTML) {
           <link rel="stylesheet" href="${assetUrl}/public/assets/styles.css">
       </head>
       <body>
-        <div id="root">${componentHTML}</div>
+        <div id="root">${componentHTML}</div><div id="dev-tools"></div>
         <script type="application/javascript" src="${assetUrl}/public/assets/bundle.js"></script>
       </body>
     </html>
