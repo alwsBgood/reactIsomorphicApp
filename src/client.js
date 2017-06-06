@@ -6,12 +6,14 @@ import routes from './routes';
 import configureStore from './redux/configureStore';
 import DevTools from './components/DevTools';
 
-const store = configureStore();
+
+const initialState = window.REDUX_INITIAL_STATE || {};
+const store = configureStore(initialState);
 
 const component = (
   <Provider store={store}>
     <Router history={browserHistory}>
-      {routes}
+      {routes(store)}
     </Router>
   </Provider>
 );

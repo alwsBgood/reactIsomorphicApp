@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import { OAuthButton, SignOutButton } from 'components/AuthButtons';
 
 import './HelloWorldPage.css';
 
@@ -6,13 +7,11 @@ const propTypes = {
   initialName: PropTypes.string
 };
 
-
 const defaultProps = {
-  initialName: 'Anonim'
+  initialName: 'Аноним'
 };
 
-
-class App extends Component {
+class HelloWorldPage extends Component {
   constructor(props) {
     super(props);
 
@@ -20,12 +19,11 @@ class App extends Component {
     this.renderGreetingWidget = this.renderGreetingWidget.bind(this);
 
     this.state = {
-      name: this.props.initialName,
-      touched: false,
-      greetingWidget: () => false
+      name:            this.props.initialName,
+      touched:         false,
+      greetingWidget:  () => null
     };
   }
-
 
   handleNameChange(val) {
     const name = val.target.value;
@@ -46,7 +44,8 @@ class App extends Component {
 
     return (
       <div>
-        <p>Hello {this.state.name}, my friend!</p>
+        <hr />
+        <p>Здравствуйте, {this.state.name}!</p>
       </div>
     );
   }
@@ -60,13 +59,15 @@ class App extends Component {
           <div><input onChange={this.handleNameChange} /></div>
           {this.renderGreetingWidget()}
         </div>
+        <h2>Авторизация</h2>
+        <OAuthButton provider='github' />
+        <SignOutButton />
       </div>
     );
   }
 }
 
-App.propTypes = propTypes;
-App.defaultProps = defaultProps;
+HelloWorldPage.propTypes = propTypes;
+HelloWorldPage.defaultProps = defaultProps;
 
-
-export default App;
+export default HelloWorldPage;
