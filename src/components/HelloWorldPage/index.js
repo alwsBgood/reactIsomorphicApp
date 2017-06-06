@@ -1,3 +1,3 @@
-import HelloWorldPage from './HelloWorldPAge';
+import HelloWorldPage from './HelloWorldPage';
 
 export default HelloWorldPage;

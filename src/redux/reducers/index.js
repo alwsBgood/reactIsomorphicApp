@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
+import { authStateReducer } from 'redux-oauth';
 import counterReducer from './counterReducer';
 import timeReducer from './timeReducer';
-import { authStateReducer } from 'redux-oauth';
 
 export default combineReducers({
   auth: authStateReducer,

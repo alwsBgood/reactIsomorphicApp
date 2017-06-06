@@ -1,19 +1,18 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import Grid  from 'react-bootstrap/lib/Grid';
 import Nav from 'react-bootstrap/lib/Nav';
 import Navbar from 'react-bootstrap/lib/Navbar';
 import NavItem  from 'react-bootstrap/lib/NavItem';
-import './bootstrap.css';
-import { connect } from 'react-redux';
+import { Link } from 'react-router';
+import LinkContainer from 'react-router-bootstrap/lib/LinkContainer';
 import { isUserSignedIn } from 'redux/models/user';
 
-
-import LinkContainer from 'react-router-bootstrap/lib/LinkContainer';
-import { Link } from 'react-router';
+import './bootstrap.css';
 
 const propTypes = {
-  children : PropTypes.node,
-  userSignedIn: PropTypes.bool.isRequired
+  userSignedIn: PropTypes.bool.isRequired,
+  children: PropTypes.node
 };
 
 class App extends Component {
